@@ -1,0 +1,129 @@
+<div class="tituloPesquisa">
+                -Perfumes-
+                <br><br> 
+                <div class="textoPesquisa">
+                    <hr>
+                    -genero- 
+                </div>
+            </div>
+            <div id="form">
+            <table>
+                <tr>
+                    <td width=400 height=20>
+                        <form name="genero" method="post" action="site.php"> 
+                            genero: <select name="codgenero" id="codgenero">
+                                <option value=0 selected="selected">Selecione genero ...</option>
+                                <?php
+                                    if(mysql_num_rows($pesquisar_genero) == 0)
+                                    {
+                                    echo '<h1>Sua busca por genero n�o retornou resultados ... </h1>';
+                                    }
+                                    else
+                                    {
+                                    while($resultado = mysql_fetch_array($pesquisar_genero))
+                                    {
+                                        echo '<option value="'.$resultado['codigo'].'">'.
+                                                    utf8_encode($resultado['sexo']).'</option>';
+                                    }
+                                    }
+                                    ?>
+                                </select>
+                                <input type="submit" name="pesq_genero" id="pesq_genero" value="Pesquisar">
+                                </form>
+                        </form>
+                    <td>
+                </tr>
+                <tr>
+                    <td width=400 height=20>
+                        <form name="marca" method="post" action="site.php"> 
+                            marcas: <select name="codmarca" id="codmarca">
+                                <option value=0 selected="selected">Selecione o marca ...</option>
+                                    <?php
+                                    if(mysql_num_rows($pesquisar_marcas) == 0)
+                                    {
+                                    echo '<h1>Sua busca por marcas n�o retornou resultados ... </h1>';
+                                    }
+                                    else
+                                    {
+                                    while($resultado = mysql_fetch_array($pesquisar_marcas))
+                                    {
+                                        echo '<option value="'.$resultado['codigo'].'">'.
+                                                    utf8_encode($resultado['nome']).'</option>';
+                                    }
+                                    }
+                                    ?>
+                                </select>
+                                <input type="submit" name="pesq_marca" id="pesq_marca" value="Pesquisar">
+                        </form>
+                    <td>
+                </tr>
+                <tr>
+                    <td width=400 height=20>
+                        <form name="fragrancia" method="post" action="site.php"> 
+                            fragrancia: <select name="codfragrancia" id="codfragrancia">
+                                <option value=0 selected="selected">Selecione a fragrancia...</option>
+                                    <?php
+                                    if(mysql_num_rows($pesquisar_fragrancia) == 0)
+                                    {
+                                    echo '<h1>Sua busca por fragrancia n�o retornou resultados ... </h1>';
+                                    }
+                                    else
+                                    {
+                                    while($resultado = mysql_fetch_array($pesquisar_fragrancia))
+                                    {
+                                        echo '<option value="'.$resultado['codigo'].'">'.
+                                                    utf8_encode($resultado['tipo']).'</option>';
+                                    }
+                                    }
+                                    ?>
+                                </select>
+                                <input type="submit" name="pesq_fragrancia" id="pesq_fragrancia" value="Pesquisar">
+                        </form>
+                    </td>
+                </tr>
+                </table>
+            </div>
+
+
+
+
+
+
+
+
+            <?php      
+                if ($vazio == 0)
+                {
+                $sql_materias = "select fotochamada, data, hora, chamada
+                                from materias
+                                ORDER BY data LIMIT 3";
+                $seleciona_materias = mysql_query($sql_materias);
+                ?>      
+                <b><h1>Noticias em Destaque: </h1></b><br>
+                <table border=0 width= 620 height=720 align='center'>        
+                <?php
+                while($res = mysql_fetch_array($seleciona_materias))
+                        {
+                        echo '<td width=400 height=200><a href="materiacompleta.php?materia=$codigo">'.utf8_encode('<img src="'.$res['fotochamada'].'"  height="180" width="350" />').'</a><br></td>';
+                        echo '<td width=250 height=20>'.$res['data'].' - '. $res['hora'].'<br>';                
+                        echo utf8_encode($res['chamada']).'</td></tr>';
+                        }
+                }
+                else
+                {
+                echo "<br>";
+                echo '</table>';
+                echo "<b><h1>Noticias pesquisadas: </h1></b>"."<br><br>";
+                echo '<table border=0 width= 620 height=520 align=center>';
+                while($res = mysql_fetch_array($seleciona_materias))
+                        {
+                            echo '<tr><td width=400 height=200><a href="materiacompleta.php">'.utf8_encode('<img src="'.$res['fotochamada'].'"  height="180" width="400" />').'</a><br></td>';
+                            echo '<td width=200 height=20>'.$res['data'].' - '. $res['hora'].'<br>';                
+                            echo utf8_encode($res['chamada']).'</td></tr>';
+                        }
+                
+                }
+                
+                ?>
+            
+            </table>           

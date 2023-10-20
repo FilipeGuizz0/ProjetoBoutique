@@ -1,0 +1,88 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Oswald&family=Roboto+Condensed:ital,wght@0,400;0,700;1,400&family=Teko:wght@500&display=swap');
+body{
+    margin: auto;
+}
+#topo{
+    height: 100;
+    width: auto;
+    background-color: rgb(255, 255, 255);
+    border-bottom: 1px solid rgb(167, 157, 157);
+    text-align: center;
+    padding-left: 50px;
+    padding-right: 50px;
+    
+}
+.logo{
+    height: 100px;
+    width: 220px;
+    
+}
+#meio{
+    height: 500;
+    width: auto;
+    display: inline-block;
+}
+#pesquisa{
+    height: 500;
+    width: 300;
+    border-right: 1px solid rgb(167, 157, 157);
+    display: inline-block;
+    float: left;
+    
+}
+.tituloPesquisa{
+    height: 150;
+    width: 300; 
+    background-color: rgb(228, 230, 231);
+    font-family: "bebas neue";
+    font-size: 30px;
+    text-align: center;
+    color: #35322f;
+    padding-top: 50px;
+    border-bottom: 1px solid rgb(167, 157, 157);
+
+}
+.textoPesquisa{
+    padding-top: 10px;
+    background-color: rgb(228, 230, 231);
+    font-family: "bebas neue";
+    font-size: 20px;
+    text-align: center;
+    color: #35322f;
+    
+}
+
+.carrinho{
+    height: 25px;
+    width:  25px;
+    float: right;
+    margin-top: 35px;
+}
+#baixo{
+    height: 50;
+    width: auto;
+    background-color: rgb(0, 0, 0);
+    border-top: 1px solid rgb(218, 213, 213);
+    color: #ffffff;
+    font-family: "calibri";
+    font-size: 15px;
+    text-align: center;
+    padding-top: 25px;
+}
+#form{
+    font-size: 15px;
+    font-family: "bebas neue";
+    text-align: center;
+    padding-left: 40px;
+}
+#resultado{
+    height: 500;
+    width: 1035;
+    background-color: rgb(255, 255, 255);
+    display: inline-block;
+    float: right;
+    font-family: "bebas neue";
+    color: #35322f;
+    text-align: center;
+
+}
